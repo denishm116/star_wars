@@ -17,9 +17,9 @@ const loading = ref(false)
 // Здесь я бы применил debounce
 const search = async () => {
 	loading.value = true
-	const response = await api.search(str.value)
+	const { data } = (await api.search(str.value)) ?? {}
 	loading.value = false
-	searchResult.value = response.data.results
+	searchResult.value = data?.results
 }
 
 watch(str, () => {

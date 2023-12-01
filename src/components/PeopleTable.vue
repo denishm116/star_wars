@@ -7,7 +7,6 @@
 			<th>Hair color</th>
 			<th>Favorites</th>
 		</tr>
-
 		<tr v-for="character in characters" :key="character.id">
 			<td>{{ character.name }}</td>
 			<td>{{ character.height }}</td>

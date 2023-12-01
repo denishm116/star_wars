@@ -3,7 +3,7 @@
 		<router-link to="/">Home</router-link>
 	</nav>
 	<div class="title">Character {{ character?.name }}</div>
-	<favorite-button v-if="isInFavorites(character)" :character="character" />
+	<favorite-button v-if="!isInFavorites(character)" :character="character" />
 	<div v-if="loading" class="hello">Loading</div>
 	<div v-else class="hello">
 		<table>
@@ -39,7 +39,7 @@ const character = ref()
 
 const getPeoples = async () => {
 	loading.value = true
-	const { data } = await api.getCharacter(id)
+	const { data } = (await api.getCharacter(id)) ?? {}
 	loading.value = false
 	character.value = data
 }
@@ -51,6 +51,6 @@ td {
 	padding: 8px;
 }
 tr:nth-child(2n) {
-	background: #f0f0f0; /* Цвет фона */
+	background: #f0f0f0;
 }
 </style>

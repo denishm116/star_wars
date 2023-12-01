@@ -21,11 +21,9 @@ const loading = ref(false)
 
 const getPeoples = async () => {
 	loading.value = true
-	const { data } = await api.getPeoples()
+	const { data } = (await api.getPeoples()) ?? {}
 	loading.value = false
 	characters.value = data?.results
 }
 getPeoples()
 </script>
-
-<style scoped></style>

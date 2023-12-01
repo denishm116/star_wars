@@ -1,8 +1,8 @@
 import { defineStore, skipHydrate } from 'pinia'
-
 import { computed, ref } from 'vue'
 import { Character } from '@/types/index'
 import piniaPluginPersistedstate from 'pinia-plugin-persistedstate'
+
 export const useFavoritesStore = defineStore(
 	'favorites',
 	() => {

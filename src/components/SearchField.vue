@@ -10,14 +10,13 @@
 </template>
 
 <script setup lang="ts">
-import { defineProps, PropType, toRefs } from 'vue'
+import { defineProps, PropType } from 'vue'
 import { Character } from '@/types/index'
 
-const props = defineProps({
+defineProps({
 	characters: { type: Object as PropType<Character[]> },
 	loading: { type: Boolean }
 })
-const { characters } = toRefs(props)
 
 const id = (url: string) => {
 	const arr = url.split('/')
@@ -32,6 +31,9 @@ const id = (url: string) => {
 	border-radius: 8px;
 	position: absolute;
 	padding: 8px;
+}
+.search-field__item {
+	padding: 4px;
 }
 .search-field__item:not(:last-child) {
 	margin-bottom: 8px;

@@ -16,7 +16,6 @@ import PeopleTable from '@/components/PeopleTable.vue'
 const store = useFavoritesStore()
 
 const { favoritePeoples } = storeToRefs(store)
-console.log(favoritePeoples.value)
 </script>
 
 <style scoped></style>

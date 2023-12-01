@@ -1,5 +1,5 @@
 <template>
-	<button v-if="character" @click="toggleFavorites(character)">
+	<button v-if="character" @click="toggle(character)">
 		{{ !isInFavorites(character) ? 'В избранное' : 'Удалить из избранного' }}
 	</button>
 </template>
@@ -12,14 +12,9 @@ import { defineProps, PropType, toRefs } from 'vue'
 const props = defineProps({
 	character: { type: Object as PropType<Character> }
 })
+
 const { character } = toRefs(props)
 
 const store = useFavoritesStore()
 const { toggle, isInFavorites } = store
-
-const toggleFavorites = (character: Character) => {
-	toggle(character)
-}
 </script>
-
-<style scoped></style>

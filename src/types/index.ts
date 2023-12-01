@@ -6,9 +6,7 @@ export type Character = {
 	hair_color: string
 	url: string
 }
+
 export type SwResults = {
 	results: Character[]
-}
-export type Response = {
-	data: SwResults
 }
